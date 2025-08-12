@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozarpay payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <h2>Pay ₹500</h2> 
+    <button id="rzp-button">Pay now</button>
+
+    <script>
+        var options = {
+            "key":"rzp_test_q5l2r3V2bd33Vv", //Replce with your Roxar pay key ID
+            "amount":"50000", //amount is in paise = ₹500
+            "currency":"INR",
+            "name":"ADVERZA",
+            "description":"Test Transaction",
+            "image":"https://yourdomain.com/logo.png",//option
+            "handler": function(response){
+                alert("Payment ID: "+ response.razorpay_payment_id);
+                //you can send this ID to your bbackend for varification
+            },
+            "prefill":{
+                "name":"Intekhab Ansari",
+                "email":"Intekhab@gmil.com",
+                "contact":"123456789"
+            },
+            "theme":{
+                "color":"#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+
+        document.getElementById('rzp-button').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
