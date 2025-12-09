@@ -31,7 +31,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const genAI = new GoogleGenerativeAI("AIzaSyANgT4CoPfTUq5yvTPpMAS44zygJo0nol8");
+const genAI = new GoogleGenerativeAI("AIzaSyBUi597fkDSbb2UINE3YdYMrIi31z6lO2c");
 
 app.post('/api/gemini', async (req, res) => {
   try {
